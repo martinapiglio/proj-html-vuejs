@@ -6,3 +6,8 @@
     align-items: $itemsAlignment;
     align-content: $contentAlignment;
 }
+
+@mixin centerMaxWidth() {
+    max-width: 950px;
+    margin: auto;
+}
