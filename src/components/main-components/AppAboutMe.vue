@@ -13,10 +13,10 @@ export default {
 
     <section id="about-me-section">
 
-        <span id="section-title">about me</span>
+        <span id="section-title" class="pre-title">about me</span>
     
         <section id="text-section">    
-            <h1>how to be an alpha male: the 15 habits of true alphas</h1>
+            <h2 class="title">how to be an alpha male: the 15 habits of true alphas</h2>
 
             <div>
                 <p id="text-section-title">Want to learn how to be <span>an alpha male</span>? How to be more masculine? How to be the man you always wanted to be?</p>
@@ -54,17 +54,14 @@ export default {
             display: block;
             padding-bottom: 1rem;
             color: $mint-green;
-            text-transform: uppercase;
         }
     
         #text-section {
             @include flex(row, wrap, space-between, center, center);
             padding-bottom: 4rem;
     
-            h1 {
+            h2 {
                 width: 35%;
-                font-family: 'Playfair Display', serif;
-                text-transform: capitalize;
                 font-size: 2rem;
                 font-weight: 400;
             }
@@ -96,7 +93,7 @@ export default {
 
             iframe {
                 border-radius: 7px;
-                box-shadow: 2px 10px 50px rgba(0, 0, 0, .2)
+                box-shadow: 2px 10px 50px rgba(0, 0, 0, .2);
             }
 
             div {
