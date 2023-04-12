@@ -360,24 +360,28 @@ export default {
                     position: relative;
                     text-transform: uppercase;
                     color: $mint-green;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        transform: scaleX(0);
+                        height: 2px;
+                        top: 1.2rem;
+                        left: 0;
+                        background-color: $mint-green;
+                        transform-origin: bottom right;
+                        transition: transform 0.25s ease-out;
+                    }
                 }
-    
-                a::after {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    transform: scaleX(0);
-                    height: 2px;
-                    top: 1.2rem;
-                    left: 0;
-                    background-color: $mint-green;
-                    transform-origin: bottom right;
-                    transition: transform 0.25s ease-out;
-                }
-    
-                a:hover::after {
-                    transform: scaleX(1);
-                    transform-origin: bottom left;
+
+                a:hover {
+                    font-weight: bold;
+
+                    &:hover::after {
+                        transform: scaleX(1);
+                        transform-origin: bottom left;
+                    }
                 }
 
             }

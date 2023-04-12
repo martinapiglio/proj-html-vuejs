@@ -1,7 +1,10 @@
 <script>
+import { store } from 'C:/Boolean/esercizio-mid-term/proj-html-vuejs/src/store.js';
+
 export default {
     data() {
         return {
+            store,
             navLinks: [
                 'Home',
                 'Pages',
@@ -9,12 +12,6 @@ export default {
                 'Features',
                 'Blog',
                 'Shop'
-            ],
-            navIcons: [
-                'fa-twitter',
-                'fa-facebook-f',
-                'fa-instagram',
-                'fa-linkedin'
             ]
         }
     }
@@ -46,7 +43,7 @@ export default {
             </ul>
 
             <ul id="social-media">
-                <li v-for="icon in navIcons">
+                <li v-for="icon in store.icons">
                     <a href="#">
                         <i class="fa-brands" :class="icon"></i>
                     </a>
