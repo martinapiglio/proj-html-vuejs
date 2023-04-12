@@ -28,7 +28,7 @@ export default {
 
             <div class="article-desc">
                 
-                <p> {{ articleInfo.desc }} </p>
+                 {{ articleInfo.desc }} 
 
             </div>
 
@@ -45,10 +45,9 @@ export default {
 
     .article {
         width: calc(100% / 4 - 1.4em / 4 * 3);
-        max-height: 300px;
+        max-height: fit-content;
         border-radius: 5px;
         text-align: left;
-        overflow: hidden;
         transition: all .2s;
             
         img {
@@ -68,10 +67,18 @@ export default {
 
             .article-date,
             .article-desc {
+                display: -webkit-box;
+                
+                max-height: 40px;
                 padding-bottom: .4rem;
                 color: $dark-grey;
                 font-size: .8rem;
                 line-height: 1.5;
+                overflow: hidden;
+                white-space: pre-wrap; 
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                text-overflow: ellipsis;
             }
 
             .article-date {
