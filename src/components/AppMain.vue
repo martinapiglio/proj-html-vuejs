@@ -3,6 +3,9 @@ import AppStatistic from './main-components/AppStatistic.vue';
 import AppAboutMe from './main-components/AppAboutMe.vue';
 import AppCourse from './main-components/AppCourse.vue';
 import AppBooks from './main-components/AppBooks.vue';
+import AppClient from './main-components/AppClient.vue';
+import AppRealStories from './main-components/AppRealStories.vue';
+import AppArticle from './main-components/AppArticle.vue';
 
 export default {
     data() {
@@ -88,6 +91,41 @@ export default {
                     title: 'Real man 4.0 by Maxcoach',
                     price: '$39.00'
                 },
+            ],
+            clientsList: [
+                'client-logo-05-primary.png',
+                'client-logo-06-primary.png',
+                'client-logo-07-primary.png',
+                'client-logo-04-primary.png',
+                'client-logo-03-primary.png',
+                'client-logo-02-primary.png'
+            ],
+            articlesTitle: 'Interesting articles updated daily',
+            articles: [
+                {
+                    img: 'motivation-blog-04-480x325.jpg',
+                    date: 'May 13, 2020',
+                    title: 'How to Stay True to Your Personal Brand',
+                    desc: 'When it comes to your business or carees, you want to lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do'
+                },
+                {
+                    img: 'motivation-blog-03-480x325.jpg',
+                    date: 'May 13, 2020',
+                    title: '5 Vital Lessons in 5 Years of Freelancing',
+                    desc: "Being self-employed and working from home, it's eay to get lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+                },
+                {
+                    img: 'motivation-blog-02-480x325.jpg',
+                    date: 'May 13, 2020',
+                    title: '11 Super Useful Tips for Small-Business Owners',
+                    desc: 'Being a small-business owner poses a ton of challenges. We lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
+                },
+                {
+                    img: 'motivation-blog-01-480x325.jpg',
+                    date: 'May 13, 2020',
+                    title: 'How to Give Yourself Grace to Start Again',
+                    desc: 'Forgive yourself for bad habits you may have started or lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
+                },
             ]
         }
     },
@@ -96,13 +134,16 @@ export default {
         AppStatistic,
         AppAboutMe,
         AppCourse,
-        AppBooks
+        AppBooks,
+        AppClient,
+        AppRealStories,
+        AppArticle
     },
 
     methods: {
 
-        getLastWords(string) {
-            let lastWordsStr = string.split(" ").slice(-2).join(' ');
+        getLastWords(string, end) {
+            let lastWordsStr = string.split(" ").slice(end).join(' ');
             return lastWordsStr;
         },
 
@@ -115,22 +156,26 @@ export default {
 </script>
 
 <template>
-
+    <!-- main section -->
     <main>
 
         <div class="container">
 
+            <!-- statistics section -->
             <div class="stats-container">
                 <AppStatistic v-for="stat in stats" :statistic="stat"></AppStatistic>
             </div>
-    
+            
+            <!-- about me section in a separate component -->
             <AppAboutMe></AppAboutMe>
 
+            <!-- online courses section -->
             <section id="courses">
+                
                 <span class="pre-title">begin your journey at maxcoach</span>
                 <h2 class="title">
                     <span> {{ getFirstWord(onlineCoursesTitle, 0, 1) }} </span>
-                    <span> {{ getLastWords(onlineCoursesTitle) }} </span>
+                    <span> {{ getLastWords(onlineCoursesTitle, -2) }} </span>
                 </h2>
 
                 <div class="courses-container">
@@ -141,17 +186,21 @@ export default {
 
             </section>
 
+            <!-- books section -->
             <section id="books-section">
 
                 <div id="books-section-text">
+
                     <span class="pre-title">book store online</span>
                     <h2 class="title">
                         <span> {{ getFirstWord(booksTitle, 0, 3) }} </span>
-                        <span> {{ getLastWords(booksTitle) }} </span>
+                        <span> {{ getLastWords(booksTitle, -2) }} </span>
                     </h2>
+
                     <ul>
                         <li v-for="item in booksItems"> {{ item }} </li>
                     </ul>
+
                     <button class="btn"><span class="btn-text">get free ebooks</span></button>
                 </div>
 
@@ -159,6 +208,38 @@ export default {
                     <AppBooks v-for="book in books" :bookInfo="book"></AppBooks>
                 </div>
 
+            </section>
+
+            <!-- clients section -->
+            <section id="clients-section">
+                <AppClient v-for="client in clientsList" :clientLogo="client"></AppClient>
+            </section>
+
+        </div>
+
+        <!-- real stories section - slider -->
+        <AppRealStories></AppRealStories>
+
+        <div class="container">
+
+            <!-- blog section -->
+            <section id="blog-section">
+    
+                <span class="pre-title">blog updated</span>
+                <h2 class="title">
+                    <span> {{ getFirstWord(articlesTitle, 0, 1) }} </span>
+                    <span> {{ getFirstWord(articlesTitle, 1, 3) }} </span>
+                    <span> {{ getLastWords(articlesTitle, -1) }} </span>
+                </h2>
+                
+                <div class="articles-container">
+                    <AppArticle v-for="article in articles" :articleInfo="article"></AppArticle>
+                </div>
+
+                <div id="link-all">
+                    <a href="#">view all posts</a>
+                </div>
+    
             </section>
 
         </div>
@@ -175,6 +256,27 @@ export default {
     main {
         padding: 6rem 0;
 
+        .pre-title {
+            display: block;
+            color: $dark-grey;
+            padding-bottom: 1rem;
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: 400;
+            padding-bottom: 2.5rem;
+            color: $indigo;
+
+            span {
+                font-family: 'Playfair Display', serif;
+            }
+
+            span:last-child {
+                color: $mint-green;
+            }
+        }
+
         .container {
             @include centerMaxWidth();
 
@@ -182,28 +284,8 @@ export default {
                 @include flex(row, wrap, space-around, center, center);
             }
 
-            .pre-title {
-                display: block;
-                color: $dark-grey;
-                padding-bottom: 1rem;
-                }
-
-                .title {
-                    font-size: 2rem;
-                    font-weight: 400;
-                    padding-bottom: 2.5rem;
-                    color: $indigo;
-
-                    span {
-                        font-family: 'Playfair Display', serif;
-                    }
-
-                    span:last-child {
-                        color: $mint-green;
-                    }
-                }
-
             #courses {
+                text-align: center;
 
                 .courses-container {
                     @include flex(row, wrap, space-between, flex-start, center);
@@ -215,7 +297,7 @@ export default {
 
             #books-section {
                 @include flex(row, wrap, space-between, center, center);
-                padding: 3rem 0;
+                padding: 3rem 0 10rem;
 
                 #books-section-text {
                     width: 35%;
@@ -242,6 +324,63 @@ export default {
                 }
             }
 
+            #clients-section{
+                @include flex(row, wrap, space-between, center, center);
+                padding-bottom: 5rem;
+            }
+
+        }
+
+        #blog-section {
+            padding: 7rem 0 0;
+
+            .title {
+
+                span {
+                    font-family: 'Playfair Display', serif;
+                    color: $indigo;
+                    text-transform: none;
+                }
+
+                span:nth-child(2) {
+                    color: $mint-green;
+                }
+            }
+
+            .articles-container {
+                @include flex(row, wrap, space-between, flex-start, center);
+                gap: 1.4rem;
+                padding-bottom: 2.5rem;
+            }
+
+            & #link-all:last-child {
+                text-align: center;
+
+                a {
+                    position: relative;
+                    text-transform: uppercase;
+                    color: $mint-green;
+                }
+    
+                a::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    transform: scaleX(0);
+                    height: 2px;
+                    top: 1.2rem;
+                    left: 0;
+                    background-color: $mint-green;
+                    transform-origin: bottom right;
+                    transition: transform 0.25s ease-out;
+                }
+    
+                a:hover::after {
+                    transform: scaleX(1);
+                    transform-origin: bottom left;
+                }
+
+            }
         }
 
     }

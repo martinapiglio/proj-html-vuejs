@@ -60,6 +60,7 @@ export default {
     .card {
         width: calc(100% / 3 - 1.4em / 3 * 2);
         border-radius: 5px;
+        text-align: left;
         overflow: hidden;
         transition: all .3s;
 
