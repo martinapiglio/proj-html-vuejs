@@ -4,18 +4,11 @@ import { store } from 'C:/Boolean/esercizio-mid-term/proj-html-vuejs/src/store.j
 export default {
     data() {
         return {
-            store,
-            navLinks: [
-                'Home',
-                'Pages',
-                'Courses',
-                'Features',
-                'Blog',
-                'Shop'
-            ]
+            store
         }
     },
     props: {
+        navLinks: Array,
         menuLinks: Array
     }
 }
@@ -68,7 +61,7 @@ export default {
 
         .container {
             @include centerMaxWidth();
-            @include flex(row, nowrap, space-between, center, center);
+            @include flex(row, wrap, space-between, center, center);
 
             img {
                 max-width: 100px;
@@ -78,10 +71,11 @@ export default {
 
             ul {
                 @include flex(row, nowrap, space-between, center, center);
-                gap: 1.5rem;
             }
     
             #links {
+                width: 410px;
+                min-width: 300px;
                 color: $indigo;
                 font-size: .8rem;
                 font-weight: bold;
@@ -162,6 +156,9 @@ export default {
             };
 
             #social-media {
+                width: 132px;
+                min-width: 70px; 
+
                 li {
                     i {
                         transition: all .2s;

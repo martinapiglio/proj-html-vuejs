@@ -19,7 +19,8 @@ export default {
 </script>
 
 <template>
-    
+
+        <!-- toolbar options  -->
         <ul id="toolbar-options">
             <li v-for="icon in store.toolbarIcons">
                 <a href="#">
@@ -28,11 +29,13 @@ export default {
             </li>
         </ul>
 
+        <!-- page scroll up element  -->
         <a class="page-scroll-up" href="#">
             <i class="arrow-top fa-solid fa-arrow-up"></i>
             <i class="arrow-bottom fa-solid fa-arrow-up"></i>
         </a>
 
+        <!-- components -->
         <AppHeader></AppHeader>
         <AppMain></AppMain>
         <AppFooter></AppFooter>

@@ -149,7 +149,7 @@ export default {
                     ul {
                         @include flex(column, wrap, flex-start, flex-start, flex-start);
                         column-gap: 3rem;
-                        max-height: 100px;
+                        height: 100px;
                     }
                 }
 
@@ -163,6 +163,22 @@ export default {
             font-weight: bold;
             text-align: center;
         }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        footer {
+            .container {
+                #footer-right {
+                    #explore {
+                        ul {
+                            height: 100%;
+                        }
+                    } 
+                }
+            }
+        }
+
     }
 
 </style>

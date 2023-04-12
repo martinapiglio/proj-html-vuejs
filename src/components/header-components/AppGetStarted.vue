@@ -41,7 +41,6 @@
 
             h1 {
                 padding: 1rem 0 2rem;
-                
                 font-size: 2.8rem;
                 font-weight: 400;
             }
@@ -68,6 +67,24 @@
             }
 
         }
+    }
+
+    @media screen and (max-width: 850px) {
+
+        .container {
+            
+            #get-started-introduction {
+                width: 40%;
+                h1 {
+                    font-size: 2.3rem;
+                }
+            }
+
+            #get-started-img {
+                width: 60%;
+            }
+        }
+
     }
 
 </style>

@@ -30,7 +30,7 @@ export default {
     
         <section id="video-section">
             <iframe width="550" height="380" src="https://www.youtube-nocookie.com/embed/zADtAUDHmDA?modestbranding=1&rel=0&fs=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-            <div>
+            <div id="video-quote">
                 <p>"Every morning you have two choices: continue to sleep with your dreams, or wake up and chase them."</p>
                 <img src="images/home-movation-shape-01.png" alt="">
                 <span id="name">Kaixa Stark</span>
@@ -96,7 +96,7 @@ export default {
                 box-shadow: 2px 10px 50px rgba(0, 0, 0, .2);
             }
 
-            div {
+            #video-quote {
                 padding-left: 3rem;
                 width: 35%;
 
@@ -118,6 +118,19 @@ export default {
                     text-transform: uppercase;
                     font-size: .8rem;
                     color: $dark-grey;
+                }
+            }
+        }
+
+    }
+
+    @media screen and (max-width: 850px) {
+
+        #about-me-section {
+            #video-section {
+                #video-quote {
+                    padding-top: 1rem;
+                    width: 100%; 
                 }
             }
         }
