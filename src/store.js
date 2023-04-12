@@ -12,5 +12,6 @@ export const store = reactive({
         'fa-life-ring',
         'fa-book',
         'fa-cart-shopping'
-    ]
+    ],
+    currentIndex: 0,
 });

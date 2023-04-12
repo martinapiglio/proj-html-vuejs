@@ -45,7 +45,6 @@ export default {
 <style scoped lang="scss">
 
     @use './style/_variables.scss' as *;
-    @use './style/_mixins.scss' as *;
 
     header {
         background-color: $dirty-white;
