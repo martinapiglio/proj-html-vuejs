@@ -6,5 +6,11 @@ export const store = reactive({
         'fa-twitter',
         'fa-instagram',
         'fa-linkedin'
+    ],
+    toolbarIcons: [
+        'fa-ruler',
+        'fa-life-ring',
+        'fa-book',
+        'fa-cart-shopping'
     ]
 });
