@@ -14,6 +14,9 @@ export default {
                 'Shop'
             ]
         }
+    },
+    props: {
+        menuLinks: Array
     }
 }
 </script>
@@ -30,13 +33,12 @@ export default {
 
                 <li v-for="link in navLinks">
 
-                    <a href="#">{{ link }}</a>
+                    <a href="#" class="nav-links">{{ link }}</a>
                     <i class="fa-solid fa-chevron-down"></i>
 
-                    <!-- to be filled with links -->
                     <div class="dropdown-menu"> 
+                        <a href="#" v-for="item in menuLinks"> {{ item }} </a>
                     </div>
-                    <!-- // -->
 
                 </li>
 
@@ -86,14 +88,16 @@ export default {
 
                 li {
                     @include flex(row, nowrap, space-between, center, center);
+                    position: relative;
                     transition: all .2s;
+                    height: 2rem;
 
-                    a {
+                    .nav-links {
                         position: relative;
                         padding-right: 3px;
                     }
 
-                    a::after {
+                    .nav-links::after {
                         content: '';
                         position: absolute;
                         width: 100%;
@@ -111,19 +115,47 @@ export default {
                         transition: .5s;
                     }
 
+                    .dropdown-menu {
+                        display: none;
+                    }
+
                 }
 
                 li:hover {
                     color: $mint-green;
                     cursor: pointer;
 
-                    a::after {
+                    .nav-links::after {
                         transform: scaleX(1);
                         transform-origin: bottom left;
                     }
 
                     i {
                         transform: rotate(180deg);
+                    }
+
+                    .dropdown-menu {
+                        @include flex(column, nowrap, space-between, flex-start, center);
+                        position: absolute;
+                        top: 100%;
+                        right: 0;
+                        border-bottom: 2px solid $mint-green;
+                        background-color: $dirty-white;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+                        a {
+                            color: $dark-grey;
+                            width: 100%;
+                            white-space: nowrap;
+                            padding: .8rem 3rem .8rem .8rem;
+                            transition: all .2s;
+                        }
+
+                        a:hover {
+                            color: #8b8b90;
+                            background-color: $dark-beige;
+                        }
+
                     }
                 }
 

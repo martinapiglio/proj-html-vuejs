@@ -5,7 +5,19 @@ import AppGetStarted from './header-components/AppGetStarted.vue';
 export default {
     data() {
         return {
-            
+            menuLinks: [
+                'Start Here',
+                'Success Story',
+                'About me',
+                'About us 01',
+                'About us 02',
+                'About us 03',
+                'Contact me',
+                'Contact us',
+                'Purchase Guide',
+                'Privacy Policy',
+                'Terms of Service'
+            ]
         }
     },
     components: {
@@ -17,7 +29,7 @@ export default {
 
 <template>
     <header>
-        <AppNavbar></AppNavbar>
+        <AppNavbar :menuLinks="menuLinks"></AppNavbar>
         <AppGetStarted></AppGetStarted>
     </header>
 </template>
