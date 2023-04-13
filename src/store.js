@@ -7,11 +7,23 @@ export const store = reactive({
         'fa-instagram',
         'fa-linkedin'
     ],
-    toolbarIcons: [
-        'fa-ruler',
-        'fa-life-ring',
-        'fa-book',
-        'fa-cart-shopping'
+    toolbar: [
+        {
+            icon: 'fa-ruler',
+            label: 'Select Demo',
+        },
+        {
+            icon: 'fa-life-ring',
+            label: 'Support Channel',
+        },
+        {
+            icon: 'fa-book',
+            label: 'Documentation',
+        },
+        {
+            icon: 'fa-cart-shopping',
+            label: 'Purchase MaxCoach',
+        }
     ],
     currentIndex: 0,
 });
