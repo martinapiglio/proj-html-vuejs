@@ -128,6 +128,7 @@ export default {
 
         #about-me-section {
             #video-section {
+                text-align: center;
                 #video-quote {
                     padding-top: 1rem;
                     width: 100%; 
