@@ -1,5 +1,11 @@
 <script>
-
+export default {
+    data() {
+        return {
+            
+        }
+    }
+}
 </script>
 
 <template>
@@ -26,6 +32,17 @@
     @use '../style/_variables.scss' as *;
     @use '../style/_mixins.scss' as *;
 
+    @keyframes fadein {
+        0% {
+            transform: translateY(-2rem);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
     .container {
         @include centerMaxWidth();
         @include flex(row, wrap, space-between, center, center);
@@ -37,17 +54,30 @@
 
             .pre-title {
                 text-transform: uppercase;
+                animation: fadein 1s;
             }
 
             h1 {
                 padding: 1rem 0 2rem;
                 font-size: 2.8rem;
                 font-weight: 400;
+                opacity: 0;
+                animation: fadein 1s forwards;
+                animation-delay: .7s;
             }
 
             p {
                 padding-bottom: 2rem;
                 line-height: 1.8;
+                opacity: 0;
+                animation: fadein 1s forwards;
+                animation-delay: 1.4s;
+            }
+
+            button {
+                opacity: 0;
+                animation: fadein 1s forwards;
+                animation-delay: 2.1s;
             }
 
         }
