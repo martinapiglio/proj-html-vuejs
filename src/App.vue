@@ -7,7 +7,7 @@ import AppFooter from './components/AppFooter.vue';
 export default {
     data() {
         return {
-            store
+            store,
         }
     },
     components: {
@@ -15,7 +15,6 @@ export default {
         AppMain,
         AppFooter
     }
-
 }
 </script>
 
@@ -58,6 +57,7 @@ export default {
         position: fixed;
         top: 25%;
         right: 0;
+        z-index: 10;
         padding: .5rem .7rem;
         line-height: 2.5;
         border-right: 0;

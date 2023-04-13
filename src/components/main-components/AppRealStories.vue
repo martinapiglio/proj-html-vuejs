@@ -31,7 +31,12 @@ export default {
                     job: ' / Consultant'
                 },
             ],
+            autoplay: '',
         }
+    },
+
+    created() {
+        this.cardsAutoplay();
     },
 
     methods: {
@@ -56,6 +61,14 @@ export default {
 
         },
 
+        cardsAutoplay() {
+            this.autoplay = setInterval(this.next,3000);
+        },
+
+        stopCardsAutoplay() {
+            clearInterval(this.autoplay);
+        }
+
     }
 
 }
@@ -66,7 +79,7 @@ export default {
 
     <div class="real-stories-container">
 
-        <div id="real-stories">
+        <div @mouseover="stopCardsAutoplay" @mouseleave="cardsAutoplay" id="real-stories">
             <span class="pre-title">real stories</span>
 
                 <div class="testimonials">
@@ -96,6 +109,7 @@ export default {
 
     @use '../style/_variables.scss' as *;
     @use '../style/_mixins.scss' as *;
+
     .real-stories-container {
         @include flex(row, wrap, space-between, center, center);
         position: relative;
@@ -171,5 +185,6 @@ export default {
             }
         }
     }
+
 
 </style>
