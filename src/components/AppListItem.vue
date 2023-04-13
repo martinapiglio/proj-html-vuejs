@@ -1,6 +1,4 @@
 <script>
-import AppListItem from './AppListItem.vue';
-
 export default {
     data() {
         return {

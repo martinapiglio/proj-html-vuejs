@@ -35,10 +35,6 @@ export default {
         }
     },
 
-    created() {
-        this.cardsAutoplay();
-    },
-
     methods: {
 
         next() {
@@ -79,7 +75,7 @@ export default {
 
     <div class="real-stories-container">
 
-        <div @mouseover="stopCardsAutoplay" @mouseleave="cardsAutoplay" id="real-stories">
+        <div @mouseover="cardsAutoplay" @mouseleave="stopCardsAutoplay"  id="real-stories">
             <span class="pre-title">real stories</span>
 
                 <div class="testimonials">

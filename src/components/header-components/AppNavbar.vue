@@ -133,6 +133,7 @@ export default {
                         position: absolute;
                         top: 100%;
                         right: 0;
+                        z-index: 10;
                         border-bottom: 2px solid $mint-green;
                         background-color: $dirty-white;
                         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
